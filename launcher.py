@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 with open('builds.txt', 'r') as blist:
     builds = blist.readlines()
 
-url = "http://127.0.0.1/info.php"
+url = "https://raw.githubusercontent.com/SuperPou1/sm64pclauncher/main/news.txt"
 html = urlopen(url).read()
 newstext = BeautifulSoup(html, features="html.parser")
 newstext = newstext.get_text()
