@@ -1,5 +1,9 @@
 import PySimpleGUI as sg
 import os
+news=[
+    [sg.Text('News', font=(20))],
+    [sg.Text('Nothing to see here. (currently)')]
+    ]
 options=[
     [sg.Button('Play', size=(15, 3), button_color=("white", "green"))],
     [sg.Button('Build', size=(15, 1))]
@@ -18,6 +22,8 @@ layout = [
         sg.Column(buildselect, size=(300, 300)),
         sg.VSeperator(),
         sg.Column(options,size=(140, 300)),
+        sg.VSeparator(),
+        sg.Column(news, size=(300, 300)),
     ]
 ]
 window = sg.Window('SM64pc launcher', layout)
