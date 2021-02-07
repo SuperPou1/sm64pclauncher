@@ -59,6 +59,11 @@ while True:
     os.system('bash -c "cd '+repofolder+' && make '+buildflags+'"')
     os.system('cp -r '+texturepack+'/gfx '+repofolder+'/build/us_pc/res')
     window = sg.Window('Build finished!', buildfinish)
+    with open('builds.txt', 'r') as blist:
+        builds = blist.read()
+    with open ('builds.txt', 'w') as bwrite:
+        bwrite.write(repofolder+'\n'+builds)
+    os.system('./'+repofolder+'/build/us_pc/sm64.us.f3dex2e')
 
 
 
