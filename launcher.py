@@ -46,11 +46,14 @@ while True:
         )
 
         filename = filename.rstrip("\n")
-    if event == "Play" or event == sg.WIN_CLOSED:
+    if event == "Play":
         os.system('cd '+filename+'/build/us_pc/ && ./sm64.us.f3dex2e')
         break
         
     if event == 'Build':
         import builder
         exit() 
+    if event == sg.WIN_CLOSED:
+        exit()
+
         
