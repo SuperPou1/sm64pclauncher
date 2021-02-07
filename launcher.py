@@ -1,8 +1,16 @@
 import PySimpleGUI as sg
 import os
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
+url = "http://127.0.0.1/info.php"
+html = urlopen(url).read()
+newstext = BeautifulSoup(html, features="html.parser")
+newstext = newstext.get_text()
+
 news=[
     [sg.Text('News', font=(20))],
-    [sg.Text('Nothing to see here. (currently)')]
+    [sg.Text(newstext)]
     ]
 options=[
     [sg.Button('Play', size=(15, 3), button_color=("white", "green"))],
