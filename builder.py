@@ -12,8 +12,8 @@ baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64")],[
         sg.In(),
         sg.FileBrowse(),
 
-    ],[sg.Button("Ok")],[sg.Button("Cancel")]]
-buildfinish = [[sg.Text('Building finished, the script has no clue if it failed or not.')],[sg.Button('Ok')]]
+    ],[sg.Button("Ok")]]
+buildfinish = [[sg.Text('If you see this message and the game did not launch for like 2 minutes after the message appeared, that means that build failed.')],[sg.Button('Ok')]]
 
 
 
