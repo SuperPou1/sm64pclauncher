@@ -13,7 +13,7 @@ newstext = newstext.get_text()
 
 news=[
     [sg.Text('News', font=(1))],
-    [sg.Text(newstext, border_width=250)]
+    [sg.Text(newstext, size=(40,40))]
     ]
 options=[
     [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1),disabled=True)],
@@ -34,7 +34,7 @@ layout = [
         sg.VSeperator(),
         sg.Column(options,size=(140, 300)),
         sg.VSeparator(),
-        sg.Column(news, size=(300, 300)),
+        sg.Column(news, size=(300, 300), scrollable=True),
     ]
 ]
 window = sg.Window('SM64pc launcher', layout)
