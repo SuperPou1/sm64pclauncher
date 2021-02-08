@@ -5,7 +5,6 @@ import os
 import subprocess
 
 branchselect = [[sg.Text("Paste github link to sm64pc repo and branch")],[sg.In(),sg.In(size=(7, 1))],[sg.Text("And type the name of repo folder")],[sg.In()],[sg.Text('modelpack folder (optional)')],[sg.In(),sg.FolderBrowse()],[sg.Text('Texture pack folder (optional)')],[sg.In(),sg.FolderBrowse()],[sg.Button("Ok")]]
-baserom = sg.FileBrowse()
 buildoptions = [[sg.Text('specify build flags and jobs, you can see possible flags on your repo\'s wiki, if you use modelpack, use MODELPACK=1, if you use texturepack, use EXTERNAL_DATA=1')],[sg.InputText(),sg.Button('Build')]]
 baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64")],[
         sg.Text("baserom:"),
@@ -53,9 +52,7 @@ while True:
     window.close()
 
 
-    os.system('cp '+'"'+baseromfolder+'"'+" "+'"'+baseromfolder+'_backup"')
-    os.system('mv "'+baseromfolder+'_backup" "'+repofolder+'/baserom.us.z64"')
-    print(buildflags)
+    os.system('cp '+'"'+baseromfolder+'"'+" "+'"'+repofolder+'/baserom.us.z64"')
     os.system('cd "'+repofolder+'" && make '+buildflags)
     os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
     window = sg.Window('Build finished!', buildfinish)
