@@ -30,7 +30,6 @@ buildselect=[[
 ]
 layout = [
     [
-        sg.theme_background_color(),
         sg.Column(buildselect, size=(300, 300)),
         sg.VSeperator(),
         sg.Column(options,size=(140, 300)),
