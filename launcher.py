@@ -13,7 +13,7 @@ newstext = newstext.get_text()
 
 news=[
     [sg.Text('News', font=(1))],
-    [sg.Text(newstext)]
+    [sg.Text(newstext, border_width=250)]
     ]
 options=[
     [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1),disabled=True)],
@@ -30,6 +30,7 @@ buildselect=[[
 ]
 layout = [
     [
+        sg.theme_background_color(),
         sg.Column(buildselect, size=(300, 300)),
         sg.VSeperator(),
         sg.Column(options,size=(140, 300)),
