@@ -24,7 +24,7 @@ buildselect=[[
 ],
 [
     sg.Listbox(
-        values=[builds[0],builds[1],builds[2],builds[3],builds[4],builds[5],builds[6],builds[7],builds[8],builds[9]], enable_events=True,select_mode='single', size=(40, 20), key="buildlist", bind_return_key = True
+        values=builds, enable_events=True,select_mode='single', size=(40, 20), key="buildlist", bind_return_key = True
     )
 ]
 ]
@@ -46,9 +46,9 @@ while True:
         )
 
         buildselected = buildselected.rstrip("\n")
-        if buildselected == "(empty slot)":
+        if buildselected == "":
             window['Play'].update(disabled=True)
-        if not buildselected == "(empty slot)":
+        if not buildselected == "":
             window["Play"].update(disabled=False)
     if event == "Play":
         os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
