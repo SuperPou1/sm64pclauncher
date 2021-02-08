@@ -16,7 +16,7 @@ news=[
     [sg.Text(newstext)]
     ]
 options=[
-    [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1))],
+    [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1),disabled=True)],
     [sg.Button('Build', size=(14, 1))]
 ]
 buildselect=[[
@@ -46,6 +46,8 @@ while True:
         )
 
         buildselected = buildselected.rstrip("\n")
+        if not buildselected == "(empty slot)":
+            window["Play"].update(disabled=False)
     if event == "Play":
         os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
         break
