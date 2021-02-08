@@ -30,3 +30,4 @@ if you want a shortcut to the laucher, on ubuntu, you can do this by making a fi
 `Exec=bash -c "cd /home/superpou1/mariolauncher/ && python3 /home/superpou1/mariolauncher/launcher.py"`  
 `Icon=/whatever/icon/you/like`  
 `Categories=Game;`  
+(it may not work on other distros, but it is worth trying!)
