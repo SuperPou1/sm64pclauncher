@@ -46,6 +46,8 @@ while True:
         )
 
         buildselected = buildselected.rstrip("\n")
+        if buildselected == "(empty slot)":
+            window['Play'].update(disabled=True)
         if not buildselected == "(empty slot)":
             window["Play"].update(disabled=False)
     if event == "Play":
