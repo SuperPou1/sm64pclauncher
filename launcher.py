@@ -41,13 +41,13 @@ window = sg.Window('SM64pc launcher', layout)
 while True:
     event, values = window.read()
     if event == 'buildlist':
-        filename = os.path.join(
+        buildselected = os.path.join(
             values['buildlist'][0]
         )
 
-        filename = filename.rstrip("\n")
+        buildselected = buildselected.rstrip("\n")
     if event == "Play":
-        os.system('cd '+filename+'/build/us_pc/ && ./sm64.us.f3dex2e')
+        os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
         break
         
     if event == 'Build':
