@@ -1,3 +1,3 @@
-pip install python3-tk
-pip install python3-bs4
+pip install tk
+pip install bs4
 pip install pysimplegui
