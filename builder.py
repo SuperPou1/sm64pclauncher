@@ -56,7 +56,7 @@ while True:
     os.system('cp '+'"'+baseromfolder+'"'+" "+'"'+baseromfolder+'_backup"')
     os.system('mv "'+baseromfolder+'_backup" "'+repofolder+'/baserom.us.z64"')
     print(buildflags)
-    os.system('bash -c "cd "'+repofolder+'" && make '+buildflags+'"')
+    os.system('cd "'+repofolder+'" && make '+buildflags)
     os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
     window = sg.Window('Build finished!', buildfinish)
     with open('builds.txt', 'r') as blist:
