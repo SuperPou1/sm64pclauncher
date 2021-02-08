@@ -3,13 +3,13 @@ A launcher for super mario 64 pc port. only works on linux (at the moment, later
 ## installation
 First, you will need python 3 and python pip. when you have python 3 and pip installed, install the rest of dependencies using installdepends.sh.
 to install sm64pc launcher (in terminal):
-install python 3, diffierent command on diffierent distros
-`python3 get-pip.py`
-`git clone https://github.com/SuperPou1/sm64pclauncher`
-`cd sm64pclauncher`
-`chmod +x installdepends.sh`
-`./installdepends.sh`
-`python3 launcher.py`
+install python 3, diffierent command on diffierent distros  
+`python3 get-pip.py`  
+`git clone https://github.com/SuperPou1/sm64pclauncher`  
+`cd sm64pclauncher`  
+`chmod +x installdepends.sh`  
+`./installdepends.sh`  
+`python3 launcher.py`  
 ## Usage
 To run the launcher, type in terminal `python3 launcher.py`  
 To build sm64, press "Build"  
