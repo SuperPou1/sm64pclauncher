@@ -5,12 +5,13 @@ from urllib.request import urlopen
 with open('builds.txt', 'r') as blist:
     builds = blist.readlines()
 
+
 url = "https://raw.githubusercontent.com/SuperPou1/sm64pclauncher/main/news.txt"
 newstext = urlopen(url).read().decode("utf-8")
 
 news=[
     [sg.Text('News', font=(1))],
-    [sg.Multiline('adshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagdadshjgfaskjdgfajksdgfjhasdgfjksagd', disabled=True, size=(36, 16))]
+    [sg.Multiline(newstext, disabled=True, size=(36, 16))]
     ]
 options=[
     [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1),disabled=True)],
@@ -34,6 +35,7 @@ layout = [
         sg.Column(news, size=(300, 300)),
     ]
 ]
+            
 window = sg.Window('SM64pc launcher', layout)
 while True:
     event, values = window.read()
@@ -48,7 +50,10 @@ while True:
         if not buildselected == "":
             window["Play"].update(disabled=False)
     if event == "Play":
-        os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
+        if os.name == 'nt':
+            os.system('"'+buildselected+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
+        if os.name == 'posix':
+            os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
         break
         
     if event == 'Build':

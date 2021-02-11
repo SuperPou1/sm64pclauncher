@@ -1,17 +1,24 @@
 # sm64pclauncher
-A launcher for super mario 64 pc port. only works on linux apt based distros(at the moment, later it will work on windows too)
-## installation
-run these commands in terminall
+A launcher for super mario 64 pc port. works on linux apt based distros and Windows.
+## Linux installation
+run these commands in terminal
 `git clone https://github.com/SuperPou1/sm64pclauncher`  
 `cd sm64pclauncher`  
 `chmod +x installdepends.sh`  
 `./installdepends.sh`  
-`python3 launcher.py`  
+`python3 launcher.py`
+## Windows installation
+install python 3 and msys2, then download repo zip and unpack it, then doubleclick on `installdepends.bat`.
 ## Usage
+### Running on Windows
+doubleclick `launcher.py`
+### Running on Linux
 To run the launcher, type in terminal `python3 launcher.py`  
+### Using it
 To build sm64, press "Build"  
 To play, select existing build and click "Play"  
 ## How to build
+If you are on windows, you should see a window prompting to select the msys2 folder. Basicallly you need to select the folder where you installed msys2.  
 In the first input box, paste github repository of any sm64pc, and in the box next to the first one type the branch.  
 In the second box, type any name you want for your repo folder. it will display like that in the launcher build selection.  
 In the other two boxes you can specify modelpack and texture pack folder. Note: when you browse for the folder, you have to be in this folder to select it.  
@@ -27,4 +34,5 @@ if you want a shortcut to the laucher, on ubuntu, you can do this by making a fi
 `Exec=bash -c "cd /home/superpou1/mariolauncher/ && python3 /home/superpou1/mariolauncher/launcher.py"`  
 `Icon=/whatever/icon/you/like`  
 `Categories=Game;`  
-(it may not work on other distros, but it is worth trying!)
+(it may not work on other distros, but it is worth trying!)  
+on windows right click the file launcher.py and select create shortcut and move it to desktop, and change the icon it you want
