@@ -8,7 +8,7 @@ run these commands in terminal
 `./installdepends.sh`  
 `python3 launcher.py`
 ## Windows installation
-install python 3 and msys2, then download repo zip and unpack it, then doubleclick on `installdepends.bat`.
+install [python 3][https://www.python.org/downloads/] and [msys2][https://www.msys2.org/], then download repo zip and unpack it, then doubleclick on `installdepends.bat`.
 ## Usage
 ### Running on Windows
 doubleclick `launcher.py`
