@@ -19,18 +19,19 @@ msys2folderselect=[
     [
         sg.In(),
         sg.FolderBrowse()
-    ],
+    ],[sg.Checkbox(text='install msys2 dependencies (check if you are building for the first time)', key='msys2depends')],
     [sg.Button('Ok')]
 ]
 if os.name == "nt":
     window = sg.Window('Windows detected', msys2folderselect)
     while True:
-        event, values = window.read()
+        event,  values = window.read()
         if event == sg.WIN_CLOSED:
             exit()
         if event == "Ok":
             msys2folder = values[0].replace('/', '\\')
             window.close()
+            msys2depends = values['msys2depends']
             break
             
 
@@ -42,7 +43,7 @@ def run(command):
     if os.name == "nt":
         return subprocess.run(
             [
-                "C:/msys64/usr/bin/bash.exe",
+                msys2folder+"/usr/bin/bash.exe",
                 "--login",
                 "-c",
                 command,
@@ -55,6 +56,8 @@ def run(command):
             command,
             shell=True,
         ).returncode
+if os.name == 'nt' and msys2depends == True:
+    run('pacman -S mingw-w64-x86_64-SDL2')
 
 # Create the window
 window = sg.Window("SM64 pc builder", branchselect)

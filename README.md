@@ -18,7 +18,7 @@ To run the launcher, type in terminal `python3 launcher.py`
 To build sm64, press "Build"  
 To play, select existing build and click "Play"  
 ## How to build
-If you are on windows, you should see a window prompting to select the msys2 folder. Basicallly you need to select the folder where you installed msys2.  
+If you are on windows, you should see a window prompting to select the msys2 folder. Basicallly you need to select the folder where you installed msys2. If you are building for the first time or reinstalled msys2, check install msys2 dependencies.  
 In the first input box, paste github repository of any sm64pc, and in the box next to the first one type the branch.  
 In the second box, type any name you want for your repo folder. it will display like that in the launcher build selection.  
 In the other two boxes you can specify modelpack and texture pack folder. Note: when you browse for the folder, you have to be in this folder to select it.  
