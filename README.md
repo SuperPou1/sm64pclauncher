@@ -2,7 +2,7 @@
 A launcher for super mario 64 pc port. works on linux apt based distros and Windows.
 ## Linux installation
 1.download latest release and unpack it  
-2.run these commands in terminal 
+2.run these commands in terminal:  
 `cd /directory/to/your/downloaded/launcher` (replace "/directory/to/your/downloaded/launcher" with your directory to the launcher)  
 `chmod +x installdepends.sh`  
 `./installdepends.sh`  
