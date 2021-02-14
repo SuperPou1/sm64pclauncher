@@ -1,19 +1,18 @@
 # sm64pclauncher
 A launcher for super mario 64 pc port. works on linux apt based distros and Windows.
 ## Linux installation
-run these commands in terminal
-`git clone https://github.com/SuperPou1/sm64pclauncher`  
-`cd sm64pclauncher`  
+1.download latest release and unpack it  
+2.run these commands in terminal 
+`cd /directory/to/your/downloaded/launcher` (replace "/directory/to/your/downloaded/launcher" with your directory to the launcher)  
 `chmod +x installdepends.sh`  
 `./installdepends.sh`  
-`python3 launcher.py`
 ## Windows installation
-install [python 3](https://www.python.org/downloads/) and [msys2](https://www.msys2.org/), then download repo zip and unpack it, then doubleclick on `installdepends.bat`.
+install [python 3](https://www.python.org/downloads/) and [msys2](https://www.msys2.org/), then download the latest release and unpack it, then doubleclick on `installdepends.bat`.
 ## Usage
 ### Running on Windows
-doubleclick `launcher.py`
+doubleclick  on `launcher.py`
 ### Running on Linux
-To run the launcher, type in terminal `python3 launcher.py`  
+type in terminal `python3 launcher.py` (you must be in launcher directory)  
 ### Using it
 To build sm64, press "Build"  
 To play, select existing build and click "Play"  
