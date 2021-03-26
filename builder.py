@@ -1,27 +1,28 @@
-# hello_psg.py
+
 
 import PySimpleGUI as sg
 import os
+from themeconfig import *
 import subprocess
 import shlex
 
-buildfailed = [[sg.Text('Build failed, try to build again'), sg.Button('Ok')]]
-branchselect = [[sg.Text("Paste github link to sm64pc repo and branch")],[sg.In(),sg.In(size=(7, 1))],[sg.Text("And type the name of repo folder")],[sg.In()],[sg.Text('modelpack folder (optional)')],[sg.In(),sg.FolderBrowse()],[sg.Text('Texture pack folder (optional)')],[sg.In(),sg.FolderBrowse()],[sg.Button("Ok")]]
-buildoptions = [[sg.Text('specify build flags and jobs, you can see possible flags on your repo\'s wiki, if you use modelpack, use MODELPACK=1, if you use texturepack, use EXTERNAL_DATA=1')],[sg.InputText(),sg.Button('Build')]]
-baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64")],[
-        sg.Text("baserom:"),
-        sg.In(),
-        sg.FileBrowse(),
+buildfailed = [[sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]]
+branchselect = [[sg.Text("Paste github link to sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.In(size=(7, 1), background_color=boxColor, text_color=boxTextColor)],[sg.Text("And type the name of repo folder", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor)],[sg.Text('modelpack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=("white",otherButtonColor))],[sg.Text('Texture pack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=('white',otherButtonColor))],[sg.Button("Ok", button_color=("white",bottomButtonColor))]]
+buildoptions = [[sg.Text('specify build flags and jobs, you can see possible flags on your repo\'s wiki, if you use modelpack, use MODELPACK=1, if you use texturepack, use EXTERNAL_DATA=1',text_color=textColor, background_color=windowBackgroundColor)],[sg.In(text_color=boxTextColor, background_color=boxColor),sg.Button('Build', button_color=("white",otherButtonColor))]]
+baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64",text_color=textColor, background_color=windowBackgroundColor)],[
+        sg.Text("baserom:", background_color=windowBackgroundColor, text_color=textColor),
+        sg.In(background_color=boxColor, text_color=boxTextColor),
+        sg.FileBrowse(button_color=("white",otherButtonColor)),
 
-    ],[sg.Button("Ok")]]
+    ],[sg.Button("Ok",button_color=("white",bottomButtonColor))]]
 
 msys2folderselect=[
-    [sg.Text('Select your msys2 folder')],
+    [sg.Text('Select your msys2 folder', text_color=textColor, background_color=windowBackgroundColor)],
     [
-        sg.In(),
-        sg.FolderBrowse()
-    ],[sg.Checkbox(text='install msys2 dependencies (check if you are building for the first time)', key='msys2depends')],
-    [sg.Button('Ok')]
+        sg.In(background_color=windowBackgroundColor, text_color=boxTextColor),
+        sg.FolderBrowse(button_color=("white", otherButtonColor))
+    ],[sg.Checkbox(text='install msys2 dependencies (check if you are building for the first time)', key='msys2depends', text_color=textColor)],
+    [sg.Button('Ok',button_color=("white", bottomButtonColor))]
 ]
 if os.name == "nt":
     window = sg.Window('Windows detected', msys2folderselect)

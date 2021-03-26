@@ -1,7 +1,8 @@
 import PySimpleGUI as sg
 import os
+from themeconfig import *
 from urllib.request import urlopen
-
+sg.theme_background_color(windowBackgroundColor)  
 with open('builds.txt', 'r') as blist:
     builds = blist.readlines()
 
@@ -10,22 +11,24 @@ url = "https://raw.githubusercontent.com/SuperPou1/sm64pclauncher/main/news.txt"
 newstext = urlopen(url).read().decode("utf-8")
 
 news=[
-    [sg.Text('News', font=(1))],
-    [sg.Multiline(newstext, disabled=True, size=(36, 16))]
+    [sg.Text('News', font=(1), background_color=windowBackgroundColor, text_color=textColor)],
+    [sg.Multiline(newstext, disabled=True, size=(36, 16), background_color=boxColor, text_color=boxTextColor)]
     ]
 options=[
-    [sg.Button('Play', size=(10, 2), button_color=("white", "green"),font=(1),disabled=True)],
-    [sg.Button('Build', size=(14, 1))]
+    [sg.Button('Play', size=(10, 2), button_color=("white", playButtonColor),font=(1),disabled=True)],
+    [sg.Button('Build', size=(14, 1), button_color=('white', otherButtonColor))]
 ]
 buildselect=[[
-    sg.Text('Select your sm64pc build:'),
+    sg.Text('Select your sm64pc build:', background_color=windowBackgroundColor, text_color=textColor),
+
 ],
 [
     sg.Listbox(
-        values=builds, enable_events=True,select_mode='single', size=(40, 20), key="buildlist", bind_return_key = True
+        values=builds, enable_events=True,select_mode='single', size=(40, 20), key="buildlist", bind_return_key = True, background_color=boxColor, text_color=boxTextColor
     )
 ]
 ]
+   
 layout = [
     [
         sg.Column(buildselect, size=(300, 300)),
@@ -35,7 +38,7 @@ layout = [
         sg.Column(news, size=(300, 300)),
     ]
 ]
-            
+    
 window = sg.Window('SM64pc launcher', layout)
 while True:
     event, values = window.read()
