@@ -1,1 +1,1 @@
-pip install pysimplegui
+py -m pip install pysimplegui
