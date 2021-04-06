@@ -60,6 +60,7 @@ def run(command):
         ).returncode
 if os.name == 'nt' and msys2depends == True:
     run('pacman -S mingw-w64-x86_64-SDL2')
+    run('pacman -S git')
 
 # Create the window
 window = sg.Window("SM64 pc builder", branchselect)
@@ -115,7 +116,7 @@ while True:
         builds = blist.read()
     with open ('builds.txt', 'w') as bwrite:
         bwrite.write(repofolder+'\n'+builds)
-    if os.path.exists(repofolder+'/build/us_pc/sm64.us.f3dex2e.exe') == False:
+    if os.path.exists('"'+repofolder+'/build/us_pc/sm64.us.f3dex2e.exe"') == False:
         window = sg.Window('Build failed! :(', buildfailed)
         while True:
             event, values = window.read()
