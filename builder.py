@@ -5,6 +5,8 @@ import os
 from themeconfig import *
 import subprocess
 import shlex
+sg.theme_background_color(windowBackgroundColor)  
+
 
 buildfailed = [[sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]]
 branchselect = [[sg.Text("Paste github link to sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.In(size=(7, 1), background_color=boxColor, text_color=boxTextColor)],[sg.Text("And type the name of repo folder", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor)],[sg.Text('modelpack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=("white",otherButtonColor))],[sg.Text('Texture pack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=('white',otherButtonColor))],[sg.Button("Ok", button_color=("white",bottomButtonColor))]]
@@ -127,12 +129,3 @@ while True:
     if os.name == 'nt':
         os.system('"'+repofolder+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
     exit()
-
-
-
-        
-
-        
-
-
-
