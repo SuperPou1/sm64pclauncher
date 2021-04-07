@@ -65,6 +65,7 @@ if os.name == 'nt' and msys2depends == True:
     run('pacman -S git --noconfirm')
     run('pacman -S gcc -noconfirm')
     run('pacman -S python3 --noconfirm')
+    run('pacman -S make --noconfirm')
 
 # Create the window
 window = sg.Window("SM64 pc builder", branchselect)
