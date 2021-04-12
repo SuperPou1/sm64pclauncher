@@ -26,6 +26,8 @@ msys2folderselect=[
     ],[sg.Checkbox(text='install msys2 dependencies (check if you are building for the first time)', key='msys2depends', text_color=textColor)],
     [sg.Button('Ok',button_color=("white", bottomButtonColor))]
 ]
+downloading = [[sg.Text('Downloading the repo... (Do not close this window if it says "not responding")', text_color=textColor, background_color=windowBackgroundColor)]]
+building = [[sg.Text('Building... (Do not close this window if it says "not responding")', text_color=textColor, background_color=windowBackgroundColor)]]
 if os.name == "nt":
     window = sg.Window('Windows detected', msys2folderselect)
     while True:
@@ -74,61 +76,90 @@ window = sg.Window("SM64 pc builder", branchselect)
 # Create an event loop
 while True:
     event, values = window.read()
-    # End program if user closes window or
-    # presses the OK button
-    if event == "Ok" or event == sg.WIN_CLOSED:
+    if event == sg.WIN_CLOSED:
+        exit()
+    if event == "Ok":
         branchname=values[1]
-        if os.name == 'posix':
-            os.system('git clone "'+values[0]+'" "'+values[2]+'" --branch='+values[1])
-            os.system('cp -r "'+values[3]+'/actors" "'+values[2]+'" && cp -r "'+values[3]+'/src" "'+values[2]+'"')
-        if os.name == 'nt':
-            run('git clone "'+values[0]+'" "'+values[2]+'" --branch='+values[1])
-            run('cp -r "'+values[3]+'/actors" "'+values[2]+'" && cp -r "'+values[3]+'/src" "'+values[2]+'"')
-            run('dir')
+        repolink=values[0]
         repofolder=values[2]
         texturepack=values[4]
+        modelpackfolder=values[3]
         window.close()
+        window = sg.Window('Downloading', downloading)
+        while True:
+            event, values = window.read(1)
+            if os.name == 'posix':
+                os.system('git clone "'+repolink+'" "'+repofolder+'" --branch='+branchname)
+                os.system('cp -r "'+modelpackfolder+'/actors" "'+repofolder+'" && cp -r "'+modelpackfolder+'/src" "'+repofolder+'"')
+            if os.name == 'nt':
+                run('git clone "'+repolink+'" "'+repofolder+'" --branch='+branchname)
+                run('cp -r "'+modelpackfolder+'/actors" "'+repofolder+'" && cp -r "'+modelpackfolder+'/src" "'+repofolder+'"')
+            window.close()
+            break
+
+        
+
+
         window = sg.Window("baserom", baseromselect)
         
         while True:
             event, values = window.read()
-            if event == 'Ok' or event == sg.WIN_CLOSED: 
+            if event == 'Ok': 
                 baseromfolder=values[0]
                 window.close()
                 window = sg.Window('build options', buildoptions)
-                event, values = window.read()
-                if event == 'Build' or event == sg.WIN_CLOSED:
-                    buildflags = values[0]
-                    print(buildflags)
-                    window.close
-                    break
+                while True:
+                    event, values = window.read()
+                    if event == 'Build':
+                        buildflags = values[0]
+                        window.close()
+                        window = sg.Window('Building', building)
+                        while True:
+                            event, values = window.read(1)
+                            if os.name == 'posix':
+                                os.system('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
+                                os.system('cd "'+repofolder+'" && make '+buildflags)
+                                os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
+                            if os.name == 'nt':
+                                run('dir')
+                                run('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
+                                run('cd "'+repofolder+'" && make '+buildflags)
+                                run('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
 
+                            if os.name == 'nt':
+                                if os.path.exists(repofolder+'/build/us_pc/sm64.us.f3dex2e.exe') == False:
+                                    window = sg.Window('Build failed! :(', buildfailed)
+                                    while True:
+                                        event, values = window.read()
+                                        if event == sg.WIN_CLOSED or event == 'Ok':
+                                            exit()
+                            if os.name == 'posix':
+                                if os.path.exists(repofolder+'/build/us_pc/sm64.us.f3dex2e') == False:
+                                    window = sg.Window('Build failed! :(', buildfailed)
+                                    while True:
+                                        event, values = window.read()
+                                        if event == sg.WIN_CLOSED or event == 'Ok':
+                                            exit()
+                            with open('builds.txt', 'r') as blist:
+                                builds = blist.read()
+                            with open ('builds.txt', 'w') as bwrite:
+                                bwrite.write(repofolder+'\n'+builds)
+                            if os.name == 'posix':
+                                os.system('."/'+repofolder+'/build/us_pc/sm64.us.f3dex2e"')
+                            if os.name == 'nt':
+                                os.system('"'+repofolder+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
 
-
-    window.close()
-
-    if os.name == 'posix':
-        os.system('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
-        os.system('cd "'+repofolder+'" && make '+buildflags)
-        os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
-    
-    if os.name == 'nt':
-        run('dir')
-        run('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
-        run('cd "'+repofolder+'" && make '+buildflags)
-        run('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
-    with open('builds.txt', 'r') as blist:
-        builds = blist.read()
-    with open ('builds.txt', 'w') as bwrite:
-        bwrite.write(repofolder+'\n'+builds)
-    if os.path.exists('"'+repofolder+'/build/us_pc/sm64.us.f3dex2e.exe"') == False:
-        window = sg.Window('Build failed! :(', buildfailed)
-        while True:
-            event, values = window.read()
-            if event == sg.WIN_CLOSED or event == 'Ok':
+                            exit()
+                        
+                    if event == sg.WIN_CLOSED:
+                        exit()
+            if event == sg.WIN_CLOSED:
                 exit()
-    if os.name == 'posix':
-        os.system('."/'+repofolder+'/build/us_pc/sm64.us.f3dex2e"')
-    if os.name == 'nt':
-        os.system('"'+repofolder+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
-    exit()
+
+
+
+    
+
+
+
+    
