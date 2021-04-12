@@ -65,10 +65,10 @@ def run(command):
 if os.name == 'nt' and msys2depends == True:
     run('pacman -S mingw-w64-x86_64-SDL2 --noconfirm')
     run('pacman -S git --noconfirm')
-    run('pacman -S gcc -noconfirm')
+    run('pacman -S mingw-w64-x86_64-gcc -noconfirm')
     run('pacman -S python3 --noconfirm')
     run('pacman -S make --noconfirm')
-
+    run('pacman -S mingw-w64-x86_64-glew --noconfirm')
 # Create the window
 window = sg.Window("SM64 pc builder", branchselect)
 
