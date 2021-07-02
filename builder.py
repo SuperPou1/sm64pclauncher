@@ -8,9 +8,24 @@ import shlex
 sg.theme_background_color(windowBackgroundColor)  
 
 
-buildfailed = [[sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]]
-branchselect = [[sg.Text("Paste github link to sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.In(size=(7, 1), background_color=boxColor, text_color=boxTextColor)],[sg.Text("And type the name of repo folder", text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor)],[sg.Text('modelpack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=("white",otherButtonColor))],[sg.Text('Texture pack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],[sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=('white',otherButtonColor))],[sg.Button("Ok", button_color=("white",bottomButtonColor))]]
-buildoptions = [[sg.Text('specify build flags and jobs, you can see possible flags on your repo\'s wiki, if you use modelpack, use MODELPACK=1, if you use texturepack, use EXTERNAL_DATA=1',text_color=textColor, background_color=windowBackgroundColor)],[sg.In(text_color=boxTextColor, background_color=boxColor),sg.Button('Build', button_color=("white",otherButtonColor))]]
+buildfailed = [
+    [sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]
+]
+branchselect = [
+    [sg.Text("Paste github link to sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.In(background_color=boxColor, text_color=boxTextColor),sg.In(size=(7, 1), background_color=boxColor, text_color=boxTextColor)],
+    [sg.Text("And type the name of repo folder", text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.In(background_color=boxColor, text_color=boxTextColor)],
+    [sg.Text('modelpack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=("white",otherButtonColor))],
+    [sg.Text('Texture pack folder (optional)', text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.In(background_color=boxColor, text_color=boxTextColor),sg.FolderBrowse(button_color=('white',otherButtonColor))],
+    [sg.Button("Ok", button_color=("white",bottomButtonColor))]
+]
+buildoptions = [
+    [sg.Text('specify build flags and jobs, you can see possible flags on your repo\'s wiki, if you use modelpack, use MODELPACK=1, if you use texturepack, use EXTERNAL_DATA=1',text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.In(text_color=boxTextColor, background_color=boxColor),sg.Button('Build', button_color=("white",otherButtonColor))]
+]
 baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64",text_color=textColor, background_color=windowBackgroundColor)],[
         sg.Text("baserom:", background_color=windowBackgroundColor, text_color=textColor),
         sg.In(background_color=boxColor, text_color=boxTextColor),
