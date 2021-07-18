@@ -14,7 +14,7 @@ install [python 3](https://www.python.org/downloads/) and [msys2](https://www.ms
 doubleclick  on `launcher.py`
 ### Running on Linux
 type in terminal `./launcher.py` (you must be in launcher directory)  
-or
+or  
 doubleclick  on `launcher.py`
 ### Using it
 To build sm64, press "Build"  
