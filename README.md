@@ -6,6 +6,7 @@ A launcher for super mario 64 pc port. works on linux apt/pacman based distros a
 `cd /directory/to/your/downloaded/launcher` (replace "/directory/to/your/downloaded/launcher" with your directory to the launcher)  
 `chmod +x installdepends.sh`  
 `chmod +x launcher.py`  
+`chmod +x themeconfig.py`  
 `./installdepends.sh`  
 ## Windows installation
 install [python 3](https://www.python.org/downloads/) and [msys2](https://www.msys2.org/), then download the latest release and unpack it, then doubleclick on `installdepends.bat`.
