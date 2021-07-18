@@ -33,7 +33,7 @@ if you want a shortcut to the laucher, on ubuntu, you can do this by making a fi
 `[Desktop Entry]`  
 `Name=SM64 launcher`  
 `Type=Application`  
-`Exec=bash -c "cd /home/username/mariolauncher/ && python3 /home/superpou1/mariolauncher/launcher.py"`  
+`Exec=bash -c "cd path/into/sm64pclauncher ; ./launcher.py"`  
 `Icon=/whatever/icon/you/like`  
 `Categories=Game;`  
 (it may not work on other distros, but it is worth trying!)  
