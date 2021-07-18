@@ -1,3 +1,5 @@
+#!/bin/bash
+
 until [[ ${ANSWER,,} == "pacman" ]] || [[ ${ANSWER,,} == "apt" ]]; do
 	read -p "Use pacman or apt? " ANSWER
 done
