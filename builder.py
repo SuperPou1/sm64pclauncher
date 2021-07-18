@@ -12,7 +12,7 @@ buildfailed = [
     [sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]
 ]
 branchselect = [
-    [sg.Text("Paste the git link to sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],
+    [sg.Text("Paste the git link to a sm64pc repo and branch", text_color=textColor, background_color=windowBackgroundColor)],
     [sg.In(background_color=boxColor, text_color=boxTextColor),sg.In(size=(7, 1), background_color=boxColor, text_color=boxTextColor)],
     [sg.Text("And type the name of repo folder", text_color=textColor, background_color=windowBackgroundColor)],
     [sg.In(background_color=boxColor, text_color=boxTextColor)],

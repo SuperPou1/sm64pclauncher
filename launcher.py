@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import PySimpleGUI as sg
 import os
 from themeconfig import *
