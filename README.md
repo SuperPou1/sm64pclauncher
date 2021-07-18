@@ -1,5 +1,5 @@
 # sm64pclauncher
-A launcher for super mario 64 pc port. works on linux apt based distros and Windows.
+A launcher for super mario 64 pc port. works on linux apt/pacman based distros and Windows.
 ## Linux installation
 1.download latest release and unpack it  
 2.run these commands in terminal:  
