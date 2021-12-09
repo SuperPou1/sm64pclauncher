@@ -7,7 +7,7 @@ import subprocess
 import shlex
 sg.theme_background_color(windowBackgroundColor)  
 
-
+msys2depends = False
 buildfailed = [
     [sg.Text('Build failed, try to build again', text_color=textColor, background_color=windowBackgroundColor), sg.Button('Ok', button_color=('white', bottomButtonColor))]
 ]
