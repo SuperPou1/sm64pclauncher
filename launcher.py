@@ -55,10 +55,11 @@ while True:
         if not buildselected == "":
             window["Play"].update(disabled=False)
     if event == "Play":
+        buildfolder, sep, region = buildselected.partition(':')
         if os.name == 'nt':
-            os.system('"'+buildselected+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
+            os.system('"'+buildfolder+'\\build\\'+region+'_pc\\sm64.'+region+'.f3dex2e.exe"')
         if os.name == 'posix':
-            os.system('cd "'+buildselected+'/build/us_pc/" && ./sm64.us.f3dex2e')
+            os.system('cd "'+buildfolder+'/build/'+region+'_pc/" && ./sm64.'+region+'.f3dex2e')
         break
         
     if event == 'Build':

@@ -30,6 +30,8 @@ baseromselect = [[sg.Text("Select baserom of sm64 with extension .z64",text_colo
         sg.Text("baserom:", background_color=windowBackgroundColor, text_color=textColor),
         sg.In(background_color=boxColor, text_color=boxTextColor),
         sg.FileBrowse(button_color=("white",otherButtonColor)),
+        sg.Text("region:", background_color=windowBackgroundColor,text_color=textColor),
+        sg.Combo(['us','jp','eu'], background_color=boxColor,text_color=boxTextColor)
 
     ],[sg.Button("Ok",button_color=("white",bottomButtonColor))]]
 
@@ -122,6 +124,8 @@ while True:
             event, values = window.read()
             if event == 'Ok': 
                 baseromfolder=values[0]
+                romregion=values[1]
+                
                 window.close()
                 window = sg.Window('build options', buildoptions)
                 while True:
@@ -133,24 +137,24 @@ while True:
                         while True:
                             event, values = window.read(1)
                             if os.name == 'posix':
-                                os.system('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
-                                os.system('cd "'+repofolder+'" && make '+buildflags)
-                                os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
+                                os.system('cp "'+baseromfolder+'" "'+repofolder+'/baserom.'+romregion+'.z64"')
+                                os.system('cd "'+repofolder+'" && make '+buildflags+' VERSION='+romregion)
+                                os.system('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/'+romregion+'_pc/res"')
                             if os.name == 'nt':
                                 run('dir')
-                                run('cp "'+baseromfolder+'" "'+repofolder+'/baserom.us.z64"')
+                                run('cp "'+baseromfolder+'" "'+repofolder+'/baserom.'+romregion+'.z64"')
                                 run('cd "'+repofolder+'" && make '+buildflags)
-                                run('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/us_pc/res"')
+                                run('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/'+romregion+'_pc/res"')
 
                             if os.name == 'nt':
-                                if os.path.exists(repofolder+'/build/us_pc/sm64.us.f3dex2e.exe') == False:
+                                if os.path.exists(repofolder+'/build/'+romregion+'_pc/sm64.'+romregion+'.f3dex2e.exe') == False:
                                     window = sg.Window('Build failed! :(', buildfailed)
                                     while True:
                                         event, values = window.read()
                                         if event == sg.WIN_CLOSED or event == 'Ok':
                                             exit()
                             if os.name == 'posix':
-                                if os.path.exists(repofolder+'/build/us_pc/sm64.us.f3dex2e') == False:
+                                if os.path.exists(repofolder+'/build/'+romregion+'_pc/sm64.'+romregion+'.f3dex2e') == False:
                                     window = sg.Window('Build failed! :(', buildfailed)
                                     while True:
                                         event, values = window.read()
@@ -159,11 +163,11 @@ while True:
                             with open('builds.txt', 'r') as blist:
                                 builds = blist.read()
                             with open ('builds.txt', 'w') as bwrite:
-                                bwrite.write(repofolder+'\n'+builds)
+                                bwrite.write(repofolder+':'+romregion+'\n'+builds)
                             if os.name == 'posix':
-                                os.system('."/'+repofolder+'/build/us_pc/sm64.us.f3dex2e"')
+                                os.system('."/'+repofolder+'/build/'+romregion+'_pc/sm64.'+romregion+'.f3dex2e"')
                             if os.name == 'nt':
-                                os.system('"'+repofolder+'\\build\\us_pc\\sm64.us.f3dex2e.exe"')
+                                os.system('"'+repofolder+'\\build\\'+romregion+'_pc\\sm64.'+romregion+'.f3dex2e.exe"')
 
                             exit()
                         
