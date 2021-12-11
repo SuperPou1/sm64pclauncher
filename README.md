@@ -14,9 +14,9 @@ install [python 3](https://www.python.org/downloads/) and [msys2](https://www.ms
 ### Running on Windows
 doubleclick  on `launcher.py`
 ### Running on Linux
-type in terminal `./launcher.py` (you must be in launcher directory)  
+type in terminal `python3 launcher.py` (you must be in launcher directory)  
 or  
-doubleclick  on `launcher.py`
+doubleclick  on `launcher.py` (this way may not work)
 ### Using it
 To build sm64, press "Build"  
 To play, select existing build and click "Play"  
