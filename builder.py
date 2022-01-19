@@ -107,10 +107,10 @@ while True:
         while True:
             event, values = window.read(1)
             if os.name == 'posix':
-                os.system('git clone "'+repolink+'" "'+repofolder+'" --branch='+branchname)
+                os.system('git clone --recursive "'+repolink+'" "'+repofolder+'" --branch='+branchname)
                 os.system('cp -r "'+modelpackfolder+'/actors" "'+repofolder+'" && cp -r "'+modelpackfolder+'/src" "'+repofolder+'"')
             if os.name == 'nt':
-                run('git clone "'+repolink+'" "'+repofolder+'" --branch='+branchname)
+                run('git clone --recursive "'+repolink+'" "'+repofolder+'" --branch='+branchname)
                 run('cp -r "'+modelpackfolder+'/actors" "'+repofolder+'" && cp -r "'+modelpackfolder+'/src" "'+repofolder+'"')
             window.close()
             break
