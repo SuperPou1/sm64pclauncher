@@ -143,7 +143,7 @@ while True:
                             if os.name == 'nt':
                                 run('dir')
                                 run('cp "'+baseromfolder+'" "'+repofolder+'/baserom.'+romregion+'.z64"')
-                                run('cd "'+repofolder+'" && make '+buildflags)
+                                run('cd "'+repofolder+'" && make '+buildflags+' VERSION='+romregion)
                                 run('cp -r "'+texturepack+'/gfx" "'+repofolder+'/build/'+romregion+'_pc/res"')
 
                             if os.name == 'nt':
