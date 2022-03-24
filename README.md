@@ -1,5 +1,5 @@
 # This project is outdated
-this project is discountinued check out the fork my EmeraldLoc: https://github.com/EmeraldLoc/sm_osx
+this project is discountinued check out the fork by Bloxxel64: https://github.com/Bloxxel64/SM64LinuxLauncher
 the reason i am stopping making this project is because the builder is too hard to make and i'm too lazy
 i will probably make a fork of it that will only contain the launcher, and will work universally with any builder....
 # sm64pclauncher
