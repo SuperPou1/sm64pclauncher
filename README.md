@@ -1,3 +1,7 @@
+# This project is outdated
+this project is discountinued check out the fork my EmeraldLoc: https://github.com/EmeraldLoc/sm_osx
+the reason i am stopping making this project is because the builder is too hard to make and i'm too lazy
+i will probably make a fork of it that will only contain the launcher, and will work universally with any builder....
 # sm64pclauncher
 A launcher for super mario 64 pc port. works on linux apt/pacman based distros and Windows.
 ![screenshot](https://cdn.discordapp.com/attachments/886701656488697878/919333674229583923/Zrzut_ekranu_z_2021-12-11_22-02-23.png)
